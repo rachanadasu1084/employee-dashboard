@@ -12,28 +12,25 @@ const [editMode, setEditMode] = useState(false);
 const [editEmployee, setEditEmployee] = useState(null);
 
 useEffect(() => {
-dispatch(fetchEmployees());
-}, [dispatch]);
+    dispatch(fetchEmployees());
+  }, [dispatch]);
  
 const handleEdit = (employee) => {
-  console.log("Edit Employee Data:", employee);
-
-setEditMode(true);
-setEditEmployee(employee);
+    console.log("Edit Employee Data:", employee);
+    setEditMode(true);
+    setEditEmployee(employee);
 };
  
 const handleCancelEdit = () => {
-setEditEmployee(null);
-setEditMode(false);
-
+    setEditEmployee(null);
+    setEditMode(false);
 };
  
 return (
 <div id="page">
-<EmployeeForm editMode={editMode} editEmployee={editEmployee} onCancelEdit={handleCancelEdit} />
-<EmployeeList employees={employees} onEdit={handleEdit} />
+  <EmployeeForm editMode={editMode} editEmployee={editEmployee} onCancelEdit={handleCancelEdit} />
+  <EmployeeList employees={employees} onEdit={handleEdit} />
 </div>
-);
-}
+);}
  
 export default App;
